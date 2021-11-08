@@ -22,7 +22,7 @@ func CreateProperty(property *models.Property) (string, error) {
 
 func GetAllProperties() ([]models.Property, error) {
 	var property models.Property
-	var properties []models.Property
+	properties := make([]models.Property, 0)
 
 	cursor, err := datasource.PropertiesCollection.Find(context.Background(), bson.D{})
 	if err != nil {
